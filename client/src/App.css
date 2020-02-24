@@ -1404,6 +1404,21 @@ input:checked[type="checkbox"]:before{
   .login-form-wrapper,.contact-form-wrapper{
     width: 100%;
   }
+
+  .packages { 
+    display: flex;
+    flex-direction: column;  
+  }
+
+  .package-info, .packages img{
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .package-actions > div > a{
+    text-align: center;
+    width: 100%;
+  }
 }
 
 /* transition between routes*/

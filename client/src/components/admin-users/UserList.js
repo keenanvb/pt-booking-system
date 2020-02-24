@@ -11,7 +11,6 @@ const ClientList = ({ client: { name, firstName, lastName, _id, prof } }) => {
         <div className="packages bg-light">
             <img src={`${imageSrc}`} alt="" className="round-img img-size-small"></img>
             <div className="package-info">
-                <h2>{name}</h2>
                 <h2>{firstName}</h2>
                 <h2>{lastName}</h2>
             </div>

@@ -116,8 +116,10 @@ const Contact = ({ contact: { name, email, message }, updateContact, addContact 
         //     </div >
         // </Fragment>
         < Fragment >
-            <h1 className="large text-primary">Sign In</h1>
-            <p className="lead"><i className="fas fa-user"></i> Sign into your account</p>
+            <h1 className="large text-primary">Contact Us</h1>
+            <p className="lead"><i className="far fa-envelope"></i> Got a question? we'd love to hear from you. Send us a message
+            and we'll respond as soon as possible
+            </p>
             <form className="form" onSubmit={(e) => onSubmit(e)}>
                 <div className="form-group">
                     <label htmlFor="Name">Name</label>

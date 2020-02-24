@@ -89,7 +89,7 @@ const Login = ({ login, isAuthenticated }) => {
         // </Fragment >
         < Fragment >
             <h1 className="large text-primary">Login</h1>
-            <p className="lead"><i className="fas fa-user"></i> Login into your account</p>
+            <p className="lead"><i className="fas fa-user"></i> Login to your account</p>
             <form className="form" onSubmit={(e) => onSubmit(e)}>
                 <div className="form-group">
                     <label htmlFor="email">Email</label>
