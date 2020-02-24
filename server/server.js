@@ -50,7 +50,7 @@ app.use(xss());
 //Rate limit
 const limiter = rateLimit({
     windowMs: 10 * 60 * 1000, // 10 minutes
-    max: 100,
+    max: 500,
     message: {
         errors: [
             {

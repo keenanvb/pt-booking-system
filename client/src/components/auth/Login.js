@@ -46,47 +46,79 @@ const Login = ({ login, isAuthenticated }) => {
     );
 
     return (
+        // < Fragment >
+        //     <div className="login-wrapper">
+        //         <div className="login-form-wrapper">
+        //             <h1 className="form-heading">Login</h1>
+        //             <form className="login-form" onSubmit={onSubmit} noValidate>
+        //                 <div className="email">
+        //                     <label htmlFor="email">Email</label>
+        //                     <input
+        //                         className={formErrors.email.length > 0 ? "error" : null}
+        //                         placeholder="Email"
+        //                         type="email"
+        //                         name="email"
+        //                         noValidate
+        //                         value={email}
+        //                         onChange={onChange}
+        //                     />
+        //                     {formErrors.email.length > 0 && (
+        //                         <span className="errorMessage">{formErrors.email}</span>
+        //                     )}
+        //                 </div>
+        //                 <div className="password">
+        //                     <label htmlFor="password">Password</label>
+        //                     <input
+        //                         placeholder="password"
+        //                         type="password"
+        //                         name="password"
+        //                         noValidate
+        //                         value={password}
+        //                         onChange={onChange}
+        //                     />
+        //                 </div>
+        //                 <div className="createAccount">
+        //                     <button type="submit">Login</button>
+        //                 </div>
+        //                 <div>
+        //                     <small> <Link to='/forgot-password'>Forgot password?</Link></small>
+        //                 </div>
+        //             </form>
+        //         </div>
+        //     </div>
+        // </Fragment >
         < Fragment >
-            <div className="login-wrapper">
-                <div className="login-form-wrapper">
-                    <h1 className="form-heading">Login</h1>
-                    <form className="login-form" onSubmit={onSubmit} noValidate>
-                        <div className="email">
-                            <label htmlFor="email">Email</label>
-                            <input
-                                className={formErrors.email.length > 0 ? "error" : null}
-                                placeholder="Email"
-                                type="email"
-                                name="email"
-                                noValidate
-                                value={email}
-                                onChange={onChange}
-                            />
-                            {formErrors.email.length > 0 && (
-                                <span className="errorMessage">{formErrors.email}</span>
-                            )}
-                        </div>
-                        <div className="password">
-                            <label htmlFor="password">Password</label>
-                            <input
-                                placeholder="password"
-                                type="password"
-                                name="password"
-                                noValidate
-                                value={password}
-                                onChange={onChange}
-                            />
-                        </div>
-                        <div className="createAccount">
-                            <button type="submit">Login</button>
-                            {/* <small>Already Have an Account?</small> */}
-                        </div>
-                        <div>
-                            <small> <Link to='/forgot-password'>Forgot password?</Link></small>
-                        </div>
-                    </form>
+            <h1 className="large text-primary">Login</h1>
+            <p className="lead"><i className="fas fa-user"></i> Login into your account</p>
+            <form className="form" onSubmit={(e) => onSubmit(e)}>
+                <div className="form-group">
+                    <label htmlFor="email">Email</label>
+                    <input
+                        className={formErrors.email.length > 0 ? "error" : null}
+                        placeholder="Email"
+                        type="email"
+                        name="email"
+                        noValidate
+                        value={email}
+                        onChange={onChange}
+                    />
+                    {formErrors.email.length > 0 && (
+                        <span className="errorMessage">{formErrors.email}</span>
+                    )}
                 </div>
-            </div>
+                <div className="form-group">
+                    <label htmlFor="password">Password</label>
+                    <input
+                        placeholder="password"
+                        type="password"
+                        name="password"
+                        noValidate
+                        value={password}
+                        onChange={onChange}
+                    />
+                </div>
+                <input type="submit" className="btn btn-primary" value="Login" />
+            </form>
         </Fragment >
     )
 }
