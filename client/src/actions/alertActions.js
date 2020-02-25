@@ -17,6 +17,16 @@ export const setAlert = (message, alertType) => {
                 type: REMOVE_ALERT,
                 payload: id
             })
-        }, 3000)
+        }, 5000)
+    }
+}
+
+
+export const removeAlert = (id) => {
+    return async (dispatch) => {
+        dispatch({
+            type: REMOVE_ALERT,
+            payload: id
+        })
     }
 }

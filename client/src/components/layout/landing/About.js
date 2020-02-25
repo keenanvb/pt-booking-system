@@ -4,6 +4,10 @@ const About = () => {
     return (
         <div className="about-container">
             <div className="about-intro">
+                <div className="about-heading">
+                    <h2 className="large">About me</h2>
+                    {/* <p className="lead">Live Your Best Life</p> */}
+                </div>
                 <p>As a Personal Trainer I am here to help you reach your personal health and fitness goals.
                     I have always been passionate about the fitness/sports industry. My goal is not to inspire you,
                     because I believe that inspiration comes from within, but I want to motivate you and encourage

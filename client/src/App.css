@@ -181,6 +181,13 @@ img {
   z-index: 200;
 }
 
+.alert-close{
+  position: absolute;
+  right: 6px;
+  top: 4px;
+  cursor: pointer
+}
+
 .alart-stacking-1{
   bottom: 90px;
 }
@@ -323,7 +330,7 @@ img {
 
 @keyframes nav-show {
   from {left: -20px;}
-  to {left: 8px;}
+  to {left: 6px;}
 }
 
 @keyframes nav-hide {
@@ -450,7 +457,7 @@ button {
 .landing {
   z-index: 1;
   /* z-index: 10; */
-  background: url('./img/gym_1.jpg') no-repeat center center/cover;
+  /* background: url('./img/gym_1.jpg') no-repeat center center/cover; */
   background-attachment: fixed;
   background-size: cover;
   height: 100vh;
@@ -485,6 +492,12 @@ button {
   margin: 20px 10px;
 }
 
+.fitness-heading, .about-heading{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .fitness-skills{
   height: 100vh;
   display: flex;
@@ -499,8 +512,7 @@ button {
   text-align: center;
   width: 300px;
   height: 250px;
-  margin: 6px;
-  /* margin: 6px; */
+  margin: 0px 2px;
 }
 
 .skill h1{
@@ -512,8 +524,8 @@ button {
 .more-info{
   position: absolute;
   text-align: center;
-  left: 0px;
-  right: 0px;
+  left: 12px;
+  right: 12px;
   bottom: 4px;
 }
 
@@ -949,14 +961,14 @@ Login form end
   justify-content:space-between;  
 } 
 .footer-line{ 
-  /* border: #000 0.5px solid;  */
-  /* margin: 10px 10px; */  
+  border: #000 0.5px solid; 
+  margin: 10px 10px;  
 } 
 .tag{ 
   margin-left: 26px;  
 } 
 .footer-social{ 
-  /* margin-right: 26px;  */
+  margin-right: 26px; 
 } 
 .footer-social > a{ 
   margin-right: 24px; 
@@ -1101,7 +1113,7 @@ Login form end
 	height: 100%;
 	width: 0;
 	opacity: 0;
-	transition: 2s ease 0.2s;
+	transition: 4s ease 0.2s;
 }
 
 .progress-alert-danger {
@@ -1169,11 +1181,9 @@ input:checked[type="checkbox"]:before{
 }
 
 .pulse-container-bottom{
-  position: relative;
   display: flex;
   justify-content: center;
-  bottom: 50px;
-  margin-bottom: 20px;
+  margin: 50px 0px;
 }
 
 .pulse{
@@ -1222,13 +1232,14 @@ input:checked[type="checkbox"]:before{
   }
 
   .fitness-skills{
+    height: 100%;
     display: flex;
-    /* flex-direction: column; */
+    /* flex-direction: row; */
     /* flex-flow: wrap;   */
   }
 
   .skill{
-    /* width: 100px; */
+    width: 200px;
     height: 100px;
     margin-bottom: 2px;    
     /* margin: 6px; */

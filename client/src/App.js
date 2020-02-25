@@ -33,7 +33,7 @@ const App = () => {
   const idleTimer = React.useRef()
 
   const onAction = (e) => {
-    console.log('user did something', e);
+    // console.log('user did something', e);
   }
 
   const onIdle = (e) => {

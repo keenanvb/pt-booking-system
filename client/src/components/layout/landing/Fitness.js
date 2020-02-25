@@ -58,10 +58,13 @@ const Fitness = () => {
 
     return (
         <div className="fitness-container">
+            <div className="fitness-heading">
+                <h2 className="large">What you can expect</h2>
+                {/* <p className="lead">Live Your Best Life</p> */}
+            </div>
             <div className="fitness-skills">
                 {renderSkillTiles()}
             </div>
-            <div className="line"></div>
         </div>
     )
 }

@@ -11,7 +11,7 @@ const ProgressBar = ({ done, alertType }) => {
 
             }
             setStyle(newStyle);
-        }, 200);
+        }, 800);
     }, [done])
 
 
