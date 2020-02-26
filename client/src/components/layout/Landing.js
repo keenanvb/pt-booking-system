@@ -22,9 +22,9 @@ const Landing = ({ isAuthenticated }) => {
         window.scrollTo(0, 0)
         // window.addEventListener('scroll', scrolly, false);
         scrolly();
-        return (() => {
-            window.removeEventListener('scroll', scrolly, false);
-        })
+        // return (() => {
+        //     window.removeEventListener('scroll', scrolly, false);
+        // })
     }, []);
 
     let scrolly = () => {
@@ -67,7 +67,7 @@ const Landing = ({ isAuthenticated }) => {
     return (
         <div>
             <div id="landing" className="landing">
-                <Suspense fallback={<></>}>
+                <Suspense fallback={<Spinner />}>
                     <Gym />
                 </Suspense>
                 <div className="dark-overlay">
