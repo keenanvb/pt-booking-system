@@ -4,7 +4,7 @@ const Fitness = () => {
 
     let skillSet = [
         {
-            name: "Wieght loss",
+            name: "Weight loss",
             info: "Lorem i elit. Deleniti quis",
             moreInfo: "more info"
         },
