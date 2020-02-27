@@ -47,7 +47,6 @@ const PackageSchema = new Schema({
     }
 );
 
-// Cascade delete courses when a bootcamp is delete
 PackageSchema.pre('remove', async function (next) {
     await this.model('Session').deleteMany({ package: this._id });
     next();

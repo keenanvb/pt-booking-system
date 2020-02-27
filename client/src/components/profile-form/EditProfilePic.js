@@ -2,9 +2,10 @@ import React, { Fragment, useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Link, withRouter } from 'react-router-dom'
-import { updateProfilePicture, getCurrentProfile } from '../../actions'
+import { updateProfilePicture, getCurrentProfile, setAlert } from '../../actions'
 
-const EditProfilePic = ({ updateProfilePicture, getCurrentProfile, history }) => {
+
+const EditProfilePic = ({ updateProfilePicture, getCurrentProfile, history, setAlert }) => {
     const [formData, setFormData] = useState({
         file: '',
         preview: ''
@@ -31,11 +32,15 @@ const EditProfilePic = ({ updateProfilePicture, getCurrentProfile, history }) =>
 
     const onSubmit = (e) => {
         e.preventDefault();
-
-        let fd = new FormData();
-        fd.append("file", file);
-
-        updateProfilePicture(fd, history)
+        const maxAllowedSize = 2000000
+        console.log('file', file);
+        if (file.size < maxAllowedSize) {
+            let fd = new FormData();
+            fd.append("file", file);
+            updateProfilePicture(fd, history)
+        } else {
+            setAlert('Please reduce image size: Max 2mb', 'danger')
+        }
     }
 
     const { file, preview } = formData
@@ -82,4 +87,4 @@ const mapStateToProps = state => {
 };
 
 
-export default connect(mapStateToProps, { updateProfilePicture, getCurrentProfile })(withRouter(EditProfilePic)) // wrap withRouter to get access to history
+export default connect(mapStateToProps, { updateProfilePicture, getCurrentProfile, setAlert })(withRouter(EditProfilePic)) // wrap withRouter to get access to history

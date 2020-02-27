@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import noImageAvail from '../../img/No-image-available.png'
 
-const ClientList = ({ client: { name, firstName, lastName, _id, prof } }) => {
+const ClientList = ({ client: { firstName, lastName, _id, prof } }) => {
 
-    let imageSrc = prof ? `uploads/${prof.avatar}` : `${noImageAvail}`;
+    let imageSrc = prof ? `/api/profile/photo/${prof.avatar}` : `${noImageAvail}`;
 
     return (
         <div className="packages bg-light">

@@ -51,7 +51,9 @@ const EditProfile = ({ profile: { profile, loading }, getCurrentProfile, createP
         createProfile(formData, history, true)
     }
 
-    let imageSrc = avatar ? `uploads/${avatar}` : `${noImageAvail}`;
+    let imageSrc = avatar ? `api/profile/photo/${avatar}` : `${noImageAvail}`;
+
+    console.log('imageSrc', imageSrc)
 
     return (
         <Fragment>

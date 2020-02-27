@@ -7,16 +7,16 @@ import Moment from 'react-moment'
 import noImageAvail from '../../img/No-image-available.png'
 
 const CommentItem = ({ auth, removeComment, comment: { _id, text, name, avatar, user, date }, postId }) => {
-
-    let imageSrc = avatar ? `uploads/${avatar}` : `${noImageAvail}`;
-
+    console.log('comment', avatar);
+    let imageSrc = avatar ? `/api/profile/photo/${avatar}` : `${noImageAvail}`;
+    console.log('imageSrc', imageSrc)
     return (
         <Fragment>
             <div class="post bg-white p-1 my-1">
                 <div>
                     <Link to={`/profile/${user}`}>
                         <img
-                            class="round-img"
+                            class="round-img img-size-small"
                             src={imageSrc}
                             alt=""
                         />

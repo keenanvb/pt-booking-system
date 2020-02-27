@@ -6,7 +6,20 @@ const Post = require('../../models/Post');
 const auth = require('../../middleware/auth');
 const { check, validationResult } = require('express-validator');
 const path = require('path');
+const multerConfig = require('../../middleware/multer');
+const mongoose = require('mongoose')
+const mongodb = require('mongodb');
+const multer = require('multer');
+const conn = mongoose.connection
+const { ObjectID } = require('mongodb');
 
+//init stream
+let GridFSBucket
+conn.once('open', () => {
+    GridFSBucket = new mongodb.GridFSBucket(conn.db, {
+        bucketName: 'uploads',
+    });
+});
 
 
 //@route    GET api/profile/me
@@ -36,7 +49,6 @@ router.get('/me', auth, async (req, res) => {
 router.post('/', [auth,
     [
         // check('status', 'Status is required').not().isEmpty(),
-        // check('skills', 'Skills is required').not().isEmpty()
     ]
 ], async (req, res) => {
     const errors = validationResult(req);
@@ -45,7 +57,7 @@ router.post('/', [auth,
     }
 
     const { company, website, location, bio, status,
-        skills, youtube, facebook, twitter, instagram, linkedin, displayProfile } = req.body;
+        youtube, facebook, twitter, instagram, linkedin } = req.body;
 
 
     // Build profile object
@@ -287,65 +299,119 @@ router.delete('/stats/:status_id', auth, async (req, res) => {
 // @desc    upload photo for profile
 // @route   PUT api/user/uploadPhoto
 // @access  Private
-router.put('/photo', auth, async (req, res) => {
+router.put('/photo', [auth, multer(multerConfig).single('file')], async (req, res) => {
     try {
         // const user = await User.findById(req.user.id)
 
         const profile = await Profile.findOne({ user: req.user.id })
 
-        // if (!profile) {
-        //     return next(new ErrorResponse(`Profile not found with id of ${req.params.id}`, 404));
+        if (!profile) {
+            return res.status(400).json({ msg: 'There is no profile' })
+        }
+
+        // //make sure that the image is a photo
+        // if (!file.mimetype.startsWith('image')) {
+
+        //     return res.status(500).send('Server Error')
+        //     // return next(new ErrorResponse(`Please upload an image file`, 400));
         // }
 
-        if (!req.files) {
+        // //check file size
+        // if (file.size > process.env.MAX_FILE_UPLOAD) {
+        //     console.log(`Please upload an image file less than ${process.env.MAX_FILE_UPLOAD}`)
+        //     // return next(new ErrorResponse(`Please upload an image file less than ${process.env.MAX_FILE_UPLOAD}`, 400));
+        // }
 
-            return res.status(500).send('Server Error')
-            // return next(new ErrorResponse(`Please  upload a file`, 400));
-        }
+        await Profile.findByIdAndUpdate(profile.id, { avatar: req.file.id })
 
-        const file = req.files.file;
+        //Update posts
+        await Post.updateMany({ user: req.user.id }, { avatar: req.file.id });
 
-        //make sure that the image is a photo
-        if (!file.mimetype.startsWith('image')) {
+        posts = await Post.find({});
 
-            return res.status(500).send('Server Error')
-            // return next(new ErrorResponse(`Please upload an image file`, 400));
-        }
+        posts.forEach(async (post, index) => {
+            if (post.comments.length > 0) {
+                post.comments.forEach(async (comment, index) => {
 
-        //check file size
-        if (file.size > process.env.MAX_FILE_UPLOAD) {
-            console.log(`Please upload an image file less than ${process.env.MAX_FILE_UPLOAD}`)
-            // return next(new ErrorResponse(`Please upload an image file less than ${process.env.MAX_FILE_UPLOAD}`, 400));
-        }
+                    if (comment.user.toString() == req.user.id) {
+                        //Update post with comments
+                        await Post.updateOne({
+                            'comments._id': comment._id,
+                            comments: {
+                                $elemMatch: { user: req.user.id }
+                            }
+                        }, {
+                            $set: { 'comments.$.avatar': req.file.id }
+                        });
+                    }
 
-        // Create custom file name
-        file.name = `photo_${profile._id}${path.parse(file.name).ext}`
-
-        file.mv(`${process.env.FILE_UPLOAD_PATH}/${file.name}`, async (err) => {
-            if (err) {
-                console.error(err);
-                // return next(new ErrorResponse(`Problem with file upload`, 500));
+                })
             }
-
-            await Profile.findByIdAndUpdate(profile.id, { avatar: file.name })
-
-            //Update post
-            await Post.updateMany({ user: req.user.id }, {
-                avatar: file.name
-            });
-
-
-            // res.redirect('back');
-            res.status(200).json('done')
-            // res.status(200).json({
-            //     success: 'true',
-            //     data: bootcamp
-            // })
         })
+
+
+
+
+        res.status(200).json('done');
+
     } catch (error) {
+        console.log('error', error)
         res.status(500).send('Server Error')
-        // next(error);
     }
 })
+
+
+//
+// @route GET /photo/:id
+// @desc  Display single photo object
+//
+router.get('/photo/:id', async (req, res) => {
+
+    const imageId = new ObjectID(req.params.id);
+
+    GridFSBucket.openDownloadStream(imageId)
+        .on('data', chunk => {
+            res.write(chunk);
+        })
+        .on('error', error => {
+            console.log('error', error);
+            res.json({ error: error })
+        })
+        .on('end', () => {
+            res.end();
+        });
+});
+
+
+//
+// @route DELETE /photo/:id
+// @desc  Delete photo
+//
+// router.delete('/photo/:id', auth, async (req, res) => {
+
+//     const imageId = new ObjectID(req.params.id);
+//     const profile = await Profile.findOne({ user: req.user.id })
+
+//     GridFSBucket.delete(imageId, async (error) => {
+//         if (!imageId) {
+//             return res.json(error)
+//         } else {
+//             await Profile.findByIdAndUpdate(profile.id, { avatar: null })
+//             await Post.updateMany({ user: req.user.id }, {
+//                 avatar: null
+//             });
+
+//             return res.json({ image: 'deleted' })
+//         }
+//     })
+// });
+
+// router.delete('/photo/drop', (req, res) => {
+
+//     GridFSBucket.drop(() => {
+//         res.json({ delete: 'all files and chunks' })
+//     })
+// });
+
 
 module.exports = router;

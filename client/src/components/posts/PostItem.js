@@ -15,7 +15,7 @@ const PostItem = ({
     showActions
 }) => {
 
-    let imageSrc = avatar ? `uploads/${avatar}` : `${noImageAvail}`;
+    let imageSrc = avatar ? `api/profile/photo/${avatar}` : `${noImageAvail}`;
 
     return (
         <div>

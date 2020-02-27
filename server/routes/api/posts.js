@@ -189,13 +189,13 @@ router.post('/comment/:id', [auth,
         };
 
         try {
-            const user = await User.findById(req.user.id).select('-password');
+            const user = await User.findById(req.user.id).select('-password').populate('prof', ['avatar']);
             const post = await Post.findById(req.params.id)
 
             const newComment = {
                 text: req.body.text,
                 name: `${user.firstName} ${user.lastName}`,
-                avatar: user.avatar,
+                avatar: user.prof.avatar,
                 user: req.user.id
             }
 

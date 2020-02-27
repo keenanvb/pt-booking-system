@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import noImageAvail from '../../img/No-image-available.png'
 
-const ProfileItem = ({ profile: { user: { _id, firstName, lastName }, avatar, status, company, location, skills } }) => {
+const ProfileItem = ({ profile: { user: { _id, firstName, lastName }, avatar, status, company, location } }) => {
 
-    let imageSrc = avatar ? `uploads/${avatar}` : `${noImageAvail}`;
+    let imageSrc = avatar ? `api/profile/photo/${avatar}` : `${noImageAvail}`;
 
     return (
         <div className="profile bg-light">

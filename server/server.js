@@ -35,7 +35,7 @@ connectDB()
 
 
 //fileupload
-app.use(fileupload());
+// app.use(fileupload());
 
 // Sanitize data
 app.use(mongoSanitize());
