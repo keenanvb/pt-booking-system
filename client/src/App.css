@@ -60,6 +60,35 @@ img {
   margin-bottom: 3rem;
 }
 
+.contact-section{
+  display: flex;
+  flex-direction: row;
+  max-width: 1100px;
+  margin: auto;
+  overflow: hidden;
+  padding: 0 2rem;
+  margin-top: 6rem;
+  margin-bottom: 3rem;
+}
+
+.contact-container{
+  padding: 40px;
+}
+
+.map-conatiner{
+  padding-top: 10px;
+}
+
+.side-nav-footer-social{
+  position: absolute;
+  bottom: 10px;
+  right: 16px;
+}
+
+.landing-heading{
+  color: var(--primary-color);
+}
+
 /* Text Styles*/
 .x-large {
   font-size: 4rem;
@@ -349,7 +378,7 @@ img {
 }
 
 .nav-sidebar :hover{
-  color: var(--secondary-color)
+  color: var(--primary-color)
 }
 
 /* Forms */
@@ -476,7 +505,7 @@ button {
 }
 
 .about-container, .fitness-container{
-  max-width: 1400px;
+  max-width: 1200px;
   margin: auto;
 }
 
@@ -510,9 +539,8 @@ button {
 .skill{
   position: relative;
   text-align: center;
-  width: 300px;
+  width: 250px;
   height: 250px;
-  margin: 0px 2px;
 }
 
 .skill h1{
@@ -1189,7 +1217,7 @@ input:checked[type="checkbox"]:before{
 .pulse{
   width: 25px;
   height: 25px;
-  background-color: #3498db;
+  background-color: var(--primary-color);
   margin: 4px;
   border-radius: 50%;
   animation: groovy-nights 3s 1s linear infinite
@@ -1229,6 +1257,11 @@ input:checked[type="checkbox"]:before{
 @media (max-width: 700px) {
   .container {
     margin-top: 8rem;
+  }
+
+  .contact-section{
+    display: flex;
+    flex-direction: column;
   }
 
   .fitness-skills{

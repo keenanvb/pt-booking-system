@@ -6,6 +6,8 @@ import PropTypes from 'prop-types'
 import Fitness from './landing/Fitness'
 import About from './landing/About'
 import Footer from './Footer'
+import Maps from './Maps'
+import Contact from '../contact/Contact'
 import Spinner from './Spinner'
 const Gym = lazy(() => import('./landing/Gym'));
 
@@ -90,15 +92,30 @@ const Landing = ({ isAuthenticated }) => {
                 </div>
             </div>
             <div className={`nav-sidebar ${display ? `show-sidebar` : `hide-sidebar-${count}`}`}>
+                <a className={`${activeLink === 3 ? 'active-link' : null} `} href="#contact"><i className="far fa-envelope"></i></a>
                 <a className={`${activeLink === 2 ? 'active-link' : null} `} href="#services"><i className="fas fa-dumbbell"></i></a>
                 <a className={`${activeLink === 1 ? 'active-link' : null} `} href="#about"><i className="fa fa-about"></i> About</a>
                 <a href="#landing"><i className="fa fa-heart"></i></a>
             </div>
-            <div id="about">
+            <div className="container" id="about">
                 <About />
             </div>
             <div id="services">
                 <Fitness />
+            </div>
+            <div id="contact" className="contact-section">
+                <div className="map-conatiner" style={{ width: '100%', marginRight: '12px' }}>
+                    <Maps
+                        googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${process.env.REACT_APP_GOOGLE_KEY}`}
+                        loadingElement={<div style={{ height: `100%` }} />}
+                        containerElement={<div style={{ height: `600px` }} />}
+                        mapElement={<div style={{ height: `100%` }} />}
+                    />
+                </div>
+                <div style={{ width: '100%', marginLeft: '12px' }}>
+                    <Contact />
+                </div>
+
             </div>
             <div className="pulse-container-bottom">
                 <div className="pulse">

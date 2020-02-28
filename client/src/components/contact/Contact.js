@@ -116,62 +116,64 @@ const Contact = ({ contact: { name, email, message }, updateContact, addContact 
         //     </div >
         // </Fragment>
         < Fragment >
-            <h1 className="large text-primary">Contact Us</h1>
-            <p className="lead"><i className="far fa-envelope"></i> Got a question? we'd love to hear from you. Send us a message
-            and we'll respond as soon as possible
+            <div className="contact-container">
+                <h1 className="large text-primary">Contact Us</h1>
+                <p className="lead"><i className="far fa-envelope"></i> Got a question? we'd love to hear from you. Send us a message
+                and we'll respond as soon as possible
             </p>
-            <form className="form" onSubmit={(e) => onSubmit(e)}>
-                <div className="form-group">
-                    <label htmlFor="Name">Name</label>
-                    <input
-                        className={formErrors.name.length > 0 ? "error" : null}
-                        placeholder="Name"
-                        type="text"
-                        name="name"
-                        noValidate
-                        maxlength={40}
-                        value={name}
-                        onChange={onChange}
-                    />
-                    {formErrors.name.length > 0 && (
-                        <span className="errorMessage">{formErrors.name}</span>
-                    )}
-                </div>
-                <div className="form-group">
-                    <label htmlFor="Email">Email</label>
-                    <input
-                        className={formErrors.email.length > 0 ? "error" : null}
-                        placeholder="Email"
-                        type="email"
-                        name="email"
-                        noValidate
-                        value={email}
-                        onChange={onChange}
-                    />
-                    {formErrors.email.length > 0 && (
-                        <span className="errorMessage">{formErrors.email}</span>
-                    )}
-                </div>
-                <div className="form-group">
-                    <label htmlFor="Message">Message</label>
-                    <textarea
-                        className={formErrors.message.length > 0 ? "error" : null}
-                        placeholder="Message"
-                        type="text"
-                        name="message"
-                        rows={4}
-                        noValidate
-                        maxlength={120}
-                        value={message}
-                        onChange={onChange}
-                    />
-                    {formErrors.message.length > 0 && (
-                        <span className="errorMessage">{formErrors.message}</span>
-                    )}
+                <form className="form" onSubmit={(e) => onSubmit(e)}>
+                    <div className="form-group">
+                        <label htmlFor="Name">Name</label>
+                        <input
+                            className={formErrors.name.length > 0 ? "error" : null}
+                            placeholder="Name"
+                            type="text"
+                            name="name"
+                            noValidate
+                            maxlength={40}
+                            value={name}
+                            onChange={onChange}
+                        />
+                        {formErrors.name.length > 0 && (
+                            <span className="errorMessage">{formErrors.name}</span>
+                        )}
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="Email">Email</label>
+                        <input
+                            className={formErrors.email.length > 0 ? "error" : null}
+                            placeholder="Email"
+                            type="email"
+                            name="email"
+                            noValidate
+                            value={email}
+                            onChange={onChange}
+                        />
+                        {formErrors.email.length > 0 && (
+                            <span className="errorMessage">{formErrors.email}</span>
+                        )}
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="Message">Message</label>
+                        <textarea
+                            className={formErrors.message.length > 0 ? "error" : null}
+                            placeholder="Message"
+                            type="text"
+                            name="message"
+                            rows={4}
+                            noValidate
+                            maxlength={120}
+                            value={message}
+                            onChange={onChange}
+                        />
+                        {formErrors.message.length > 0 && (
+                            <span className="errorMessage">{formErrors.message}</span>
+                        )}
 
-                </div>
-                <input type="submit" className="btn btn-primary" value="Send" />
-            </form>
+                    </div>
+                    <input type="submit" className="btn btn-primary" value="Send" />
+                </form>
+            </div>
         </Fragment >
     )
 }

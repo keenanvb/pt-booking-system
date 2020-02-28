@@ -48,7 +48,7 @@ const Fitness = () => {
         return skillSet.map((skillSetItem, index) => {
             return (
                 <div className='skill' key={index}>
-                    <h1>{skillSetItem.name}</h1>
+                    <h2>{skillSetItem.name}</h2>
                     {/* <p>{skillSetItem.info}</p> */}
                     <p className="more-info btn">{skillSetItem.moreInfo}</p>
                 </div>
@@ -59,12 +59,13 @@ const Fitness = () => {
     return (
         <div className="fitness-container">
             <div className="fitness-heading">
-                <h2 className="large">What you can expect</h2>
+                <h2 className="large landing-heading">What you can expect</h2>
                 {/* <p className="lead">Live Your Best Life</p> */}
             </div>
             <div className="fitness-skills">
                 {renderSkillTiles()}
             </div>
+            <div className="line"></div>
         </div>
     )
 }

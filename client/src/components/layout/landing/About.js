@@ -5,7 +5,7 @@ const About = () => {
         <div className="about-container">
             <div className="about-intro">
                 <div className="about-heading">
-                    <h2 className="large">About me</h2>
+                    <h2 className="large landing-heading">About me</h2>
                     {/* <p className="lead">Live Your Best Life</p> */}
                 </div>
                 <p>As a Personal Trainer I am here to help you reach your personal health and fitness goals.

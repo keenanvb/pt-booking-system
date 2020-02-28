@@ -24,6 +24,15 @@ const Sidebar = ({ sidebar, close }) => {
                     <li>Under construction</li>
                 </ul>
             </div>
+            <div className="side-nav-footer-social">
+                <a href='https://www.instagram.com/lauren.alyssa_pt' target='_blank' rel='noopener noreferrer'>
+                    <i style={{ color: '#fb3958' }} className='fab fa-instagram fa-2x' />
+                </a>
+                <a href='https://www.linkedin.com/in/lauren-arries-228083122/' target='_blank' rel='noopener noreferrer'>
+                    <i style={{ color: '#0e76a8' }} className='fab fa-linkedin fa-2x' />
+                </a>
+
+            </div>
         </div>
     )
 }
