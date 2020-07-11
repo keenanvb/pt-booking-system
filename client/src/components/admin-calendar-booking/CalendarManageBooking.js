@@ -305,7 +305,7 @@ const CalendarManageBooking = ({ adminBookingManage: { bookingEvents, loading },
                                     return (
                                         <div className='list-item' key={index}>
                                             <h1 className='list-item-heading'>{moment(booking.start).format('MMM Do YYYY, h:mm a')}</h1>
-                                            <button className='btn btn-danger' onClick={() => { removeBooking(booking.id) }}>x </button>
+                                            <button className='btn' onClick={() => { removeBooking(booking.id) }}>x </button>
                                         </div>
                                     )
                                 })}</div>
