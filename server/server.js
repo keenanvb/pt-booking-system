@@ -23,7 +23,7 @@ if (process.env.NODE_ENV == 'development') {
 const app = express();
 
 //crobjob
-require('./utils/packageCronjob');
+// require('./utils/packageCronjob');
 
 if (process.env.NODE_ENV == 'development') {
     app.use(morgan('dev'));
