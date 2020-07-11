@@ -31,7 +31,7 @@ export const getAdminBookingCalendarEvents = (dates) => {
     }
 }
 
-export const addAdminBookingCalendarEvents = (formData) => {
+export const addAdminBookingCalendarEvents = (formData, history) => {
     return async (dispatch) => {
         try {
             const config = {
@@ -46,7 +46,8 @@ export const addAdminBookingCalendarEvents = (formData) => {
                 type: ADD_BOOKING_CALENDAR_EVENTS,
                 payload: res.data
             });
-            dispatch(setAlert('Booking Added', 'success'))
+            dispatch(setAlert('Booking Added', 'success'));
+            history.push('/admin');
         } catch (err) {
             // dispatch({
             //     type: PACKAGE_ERROR,

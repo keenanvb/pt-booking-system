@@ -2,7 +2,6 @@ import React, { Fragment, useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import Spinner from '../layout/Spinner'
-import MobileActions from '../layout/MobileActions'
 import { getPackageUsers, getAdminBookingCalendarEvents, loadUser, getConfirmedBookings } from '../../actions'
 import PackagesItem from './UserList'
 import { Link } from 'react-router-dom'
@@ -82,7 +81,6 @@ const Clients = ({ adminPT: { clients, loading }, getPackageUsers, loadUser, get
                     {/* <div className="admin-add">
                         <Link to="/admin-add-package"><i className="fa fa-plus fa-3x" aria-hidden="true">{' '}</i></Link>
                     </div> */}
-                    <MobileActions />
                 </Fragment>
             }
         </Fragment>

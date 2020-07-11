@@ -77,7 +77,7 @@ const ManageBookingClient = ({ adminBookingManage: { clients, loading, lastestPa
                     user: selectedUserId
                 }
             }
-            addAdminBookingCalendarEvents(bookings)
+            addAdminBookingCalendarEvents(bookings, history)
         }
         setShowDialog(!showDialog)
     }
