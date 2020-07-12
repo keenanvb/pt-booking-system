@@ -216,8 +216,8 @@ const CalendarManageBooking = ({ adminBookingManage: { bookingEvents, loading },
                 start: bookingEvent.startDate,
                 id: bookingEvent._id,
                 textColor: 'black',
-                backgroundColor: bookingEvent.confirmation ? 'red' : 'orange',
-                borderColor: bookingEvent.confirmation ? 'red' : 'orange',
+                backgroundColor: bookingEvent.confirmation ? 'light blue' : 'red',
+                borderColor: bookingEvent.confirmation ? 'light blue' : 'red',
                 editable: true,
             }
 
@@ -238,8 +238,8 @@ const CalendarManageBooking = ({ adminBookingManage: { bookingEvents, loading },
                 start: e.dateStr,
                 // end:
                 editable: true,
-                backgroundColor: 'green',
-                borderColor: 'green',
+                backgroundColor: 'grey',
+                borderColor: 'grey',
                 user
             }
 
