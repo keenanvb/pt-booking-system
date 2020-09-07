@@ -2,6 +2,15 @@
 @import '~@fullcalendar/daygrid/main.css';
 @import '~@fullcalendar/timegrid/main.css';
 
+/* fonts */
+@font-face {
+  font-family: 'Quicksand';
+  src: url('/Quicksand-Light.woff2') format('woff2'),
+      url('/Quicksand-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+
 
 /* Global Styles */
 :root {
@@ -9,8 +18,9 @@
   --secondary-color: #e67e22; 
   --dark-color: #343a40;
   --light-color: #f4f4f4;
-  --danger-color: #dc3545;
-  --success-color: #28a745;
+  --danger-color: #FF9AA2;
+  --success-color: #B5EAD7;
+  --background-color: #fff;
 }
 
 ::-webkit-scrollbar {	
@@ -29,11 +39,11 @@ html{
 }
 
 body {
-  /* font-family: 'Raleway', sans-serif; */
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Quicksand';
   font-size: 1rem;
   line-height: 1.6;
-  background-color: #fff;
+  letter-spacing: 1px;
+  background-color: var(--background-color);
   color: #4a4a4a;
 }
 
@@ -267,7 +277,7 @@ img {
 .badge-danger,
 .alert-danger {
   background: var(--danger-color);
-  color: #fff;
+  color: var(--dark-color);
 }
 
 .btn-success,
@@ -275,7 +285,7 @@ img {
 .badge-success,
 .alert-success {
   background: var(--success-color);
-  color: #fff;
+  color: var(--dark-color);
 }
 
 .btn-white,
@@ -298,6 +308,20 @@ img {
 
 .round-img {
   border-radius: 50%;
+}
+
+.btn-circle{
+  border-radius: 50%;
+}
+
+.btn-close {
+  position: absolute;
+  top: -10px;
+  right: -15px;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  cursor: pointer;
 }
 
 .img-size-small{
@@ -323,7 +347,7 @@ img {
 
 /* Overlay */
 .dark-overlay {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.8);
   position: absolute;
   top: 0;
   left: 0;
@@ -353,7 +377,7 @@ img {
 .show-sidebar{
   animation-duration: 2s;
   animation-name: nav-show;
-  left: 6px
+  left: 2px;
 }
 
 
@@ -370,6 +394,13 @@ img {
 .nav-sidebar a{
   margin-left: 20px ;
   color: var(--dark-color)
+}
+
+.is-active{
+  color: var(--secondary-color);
+  font-weight: 900;
+  border-bottom: 1px solid var(--secondary-color);
+  animation: fadeIn 0.5s;
 }
 
 .active-link{
@@ -402,7 +433,7 @@ img {
   display: block;
   width: 100%;
   padding: 0.4rem;
-  font-size: 1.2rem;
+  font-size: 1rem;
   border: 1px solid #ccc;
 }
 
@@ -467,7 +498,7 @@ button {
 
 .navbar a {
   /* color: #fff; */
-  color: var(--primary-color);
+  /* color: var(--primary-color); */
   padding: 0.45rem;
   margin: 0 0.25rem;
 }
@@ -482,11 +513,15 @@ button {
   margin-right: 0.6rem;
 }
 
+.active{
+  color: var(--primary-color);
+  font-weight: 900;
+}
+
 /* Landing Page */
 .landing {
   z-index: 1;
-  /* z-index: 10; */
-  /* background: url('./img/gym_1.jpg') no-repeat center center/cover; */
+  background: url('./img/gym_1.jpg') no-repeat center center/cover;
   background-attachment: fixed;
   background-size: cover;
   height: 100vh;
@@ -505,7 +540,7 @@ button {
 }
 
 .about-container, .fitness-container{
-  max-width: 1200px;
+  max-width: 1250px;
   margin: auto;
 }
 
@@ -543,18 +578,17 @@ button {
   height: 250px;
 }
 
-.skill h1{
-  letter-spacing: 1px;
-  text-transform:uppercase
+.skill h2{
+  font-size: 1.2rem;
 }
 
 
 .more-info{
   position: absolute;
   text-align: center;
-  left: 12px;
-  right: 12px;
-  bottom: 4px;
+  left: 16px;
+  right: 16px;
+  bottom: 6px;
 }
 
 .fitness-skills div:nth-child(1){
@@ -742,8 +776,7 @@ Login Form
   width: 100%;  
   color: #111;  
   font-weight: lighter; 
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, 
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif; 
+  font-family: 'Quicksand';
 } 
 label { 
   font-size: 0.8em; 
@@ -758,7 +791,7 @@ input {
   border: 1px solid #cfcfcf;  
 } 
 input::placeholder {  
-  font-size: 1.2em; 
+  font-size: 1rem; 
   font-weight: lighter; 
   color: #999;  
 } 
@@ -842,7 +875,8 @@ Login form end
   display: flex;	
   flex-direction: row;	
   margin: 8px;
-  
+  padding: 10px;
+  position: relative;
 }	
 .package-client-name, .list-item-heading{	
   padding: 2px 4px;
@@ -1018,7 +1052,7 @@ Login form end
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
   width: 23%;
   position: relative;
 }
@@ -1033,7 +1067,7 @@ Login form end
   /* border: 1px solid grey; */
   width: 20px;
   height: 20px;
-  padding: 3px;
+  padding: 2px;
   text-align: center;
   margin-bottom: 1.2rem;
   line-height: 1;
@@ -1266,22 +1300,20 @@ input:checked[type="checkbox"]:before{
   }
 
   .fitness-skills{
+    width: 100%;
     height: 100%;
     display: flex;
-    /* flex-direction: row; */
-    /* flex-flow: wrap;   */
+    flex-direction: column;
   }
 
   .skill{
-    width: 200px;
+    width: 80%;
     height: 100px;
-    margin-bottom: 2px;    
-    /* margin: 6px; */
+    margin-bottom: 2px;   
   }
 
-  .skill h1{
-    letter-spacing: 0px;
-    font-size: 16px;
+  .skill h2{
+    font-size: 1rem;
     margin: 0px;
   }
 
@@ -1333,11 +1365,7 @@ input:checked[type="checkbox"]:before{
     /* margin-bottom:100px; */
   }
 
-  .show-sidebar{
-    animation-duration: 2s;
-    animation-name: nav-show;
-    left: 0px
-  }
+
 
   .alert {
     right: 12px;   
@@ -1436,8 +1464,7 @@ input:checked[type="checkbox"]:before{
     margin-bottom: 0.2rem;
     width: 100%;
   }
-
-
+  
   .post {
     grid-template-columns: 1fr;
   }
@@ -1467,28 +1494,24 @@ input:checked[type="checkbox"]:before{
 }
 
 /* transition between routes*/
-/* .fade-enter {
+.fade-enter {
   opacity: 0;
   z-index: 1;
 }
 
-.fade-enter.fade-enter-active {
+.fade-enter-active {
   opacity: 1;
-  transition: opacity 400ms ease-in;
+  transition: opacity 300ms ease-in;
 }
 
 .fade-exit {
-  opacity: 1;
+  opacity: 0;
 }
 
 .fade-exit-active {
   opacity: 0;
   transition: opacity 300ms ease-out;
-}  */
-
-
-
-
+} 
 
 .fade-in{
   animation: fadeIn 4s;
@@ -1503,7 +1526,31 @@ input:checked[type="checkbox"]:before{
   }
 }
 
-
-
-
-
+/* modal */
+.backdrop{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  z-index: 10;
+}
+.modal{
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  background: white;
+  border-radius: 10px;
+  text-align: center;
+}
+.modal button{
+  color: #444;
+  border-color: #444;
+  font-weight: bold;
+  margin-top: 20px;
+}
+.modal p{
+  color: #444;
+  font-weight: bold;
+}

@@ -1,7 +1,7 @@
 import {
   GET_BOOKING_CALENDAR_EVENTS, UPDATE_BOOKING_CALENDAR_EVENT, REMOVE_BOOKING_CALENDAR_EVENT,
   GET_BOOKING_CALENDAR_USERS, GET_BOOKING_CALENDAR_LATEST_PACKAGE, BOOKING_CALENDAR_UPDATE,
-  SUBMIT_CONFIRMED_BOOKINGS_SUCCESS, GET_CONFIRMED_BOOKINGS
+  SUBMIT_CONFIRMED_BOOKINGS_SUCCESS, GET_CONFIRMED_BOOKINGS, ADD_BOOKING_CALENDAR_EVENTS
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -28,6 +28,8 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, confirmedBookings: payload, loading: false }
     case SUBMIT_CONFIRMED_BOOKINGS_SUCCESS:
       return { ...state, confirmedBookings: payload, loading: true } //reloading to fetch call SUBMIT_CONFIRMED_BOOKINGS_SUCCESS
+    case ADD_BOOKING_CALENDAR_EVENTS:
+      return { ...state, loading: true }
     case BOOKING_CALENDAR_UPDATE:
       return { ...state, [payload.prop]: payload.value }
     case UPDATE_BOOKING_CALENDAR_EVENT:

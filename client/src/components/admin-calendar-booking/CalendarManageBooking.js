@@ -12,6 +12,7 @@ import listPlugin from '@fullcalendar/list';
 import interactionPlugin from "@fullcalendar/interaction";
 import Spinner from '../layout/Spinner'
 import Dialog from '../dialog/Dialog'
+import Modal from './Modal'
 
 const CalendarManageBooking = ({ adminBookingManage: { bookingEvents, loading },
     getAdminBookingCalendarEvents, updateAdminBooking, removeAdminBooking,
@@ -29,7 +30,7 @@ const CalendarManageBooking = ({ adminBookingManage: { bookingEvents, loading },
         revert: '',
         bookingLimit: ''
     });
-
+    const [showModal, setShowModal] = useState(false);
 
     const [showDialog, setShowDialog] = useState(false)
     const [checked, setChecked] = useState(false)
@@ -216,8 +217,8 @@ const CalendarManageBooking = ({ adminBookingManage: { bookingEvents, loading },
                 start: bookingEvent.startDate,
                 id: bookingEvent._id,
                 textColor: 'black',
-                backgroundColor: bookingEvent.confirmation ? 'light blue' : 'red',
-                borderColor: bookingEvent.confirmation ? 'light blue' : 'red',
+                backgroundColor: bookingEvent.confirmation ? '#B5EAD7' : '#FFDAC1',
+                borderColor: bookingEvent.confirmation ? '#B5EAD7' : '#FFDAC1',
                 editable: true,
             }
 
@@ -228,6 +229,7 @@ const CalendarManageBooking = ({ adminBookingManage: { bookingEvents, loading },
 
     const handleDateClick = (e) => {
         const { adminBookings, bookingLimit } = formData
+        // toggle pop up
 
         if (checked) {
             let id = uuid.v4();
@@ -249,6 +251,8 @@ const CalendarManageBooking = ({ adminBookingManage: { bookingEvents, loading },
                 adminBookings.push(obj);
                 setFormData({ ...formData, bookings });
             }
+
+            setShowModal(!showModal);
         } else {
             setAlert('Please ensure Create Booking is active', 'danger')
         }
@@ -288,12 +292,12 @@ const CalendarManageBooking = ({ adminBookingManage: { bookingEvents, loading },
 
     }
 
-
-
     let { bookings, name, actionType, change, adminBookings } = formData
 
     return (
         <Fragment>
+            <Modal showModal={showModal} setShowModal={setShowModal} adminBookings={adminBookings} />
+
             <form className="form" onSubmit={(e) => e.preventDefault()}>
                 <input style={{ marginRight: '6px' }} type="checkbox" name="check" checked={checked} onChange={() => { setChecked(!checked) }} />
                 {!checked ? 'Manage Caldendar' : 'Create Booking for client'}
@@ -305,7 +309,7 @@ const CalendarManageBooking = ({ adminBookingManage: { bookingEvents, loading },
                                     return (
                                         <div className='list-item' key={index}>
                                             <h1 className='list-item-heading'>{moment(booking.start).format('MMM Do YYYY, h:mm a')}</h1>
-                                            <button className='btn' onClick={() => { removeBooking(booking.id) }}>x </button>
+                                            <div className='btn-close' onClick={() => { removeBooking(booking.id) }}>x </div>
                                         </div>
                                     )
                                 })}</div>
@@ -379,7 +383,7 @@ const CalendarManageBooking = ({ adminBookingManage: { bookingEvents, loading },
                             // }}
                             eventOverlap={true}
                             // overlap={false}
-                            contentHeight={400}
+                            contentHeight={450}
                             plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin, listPlugin]} />
                     </div>
                 }

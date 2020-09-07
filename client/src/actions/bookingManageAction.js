@@ -47,7 +47,7 @@ export const addAdminBookingCalendarEvents = (formData, history) => {
                 payload: res.data
             });
             dispatch(setAlert('Booking Added', 'success'));
-            history.push('/admin');
+            // history.push('/admin-manage-booking');
         } catch (err) {
             // dispatch({
             //     type: PACKAGE_ERROR,

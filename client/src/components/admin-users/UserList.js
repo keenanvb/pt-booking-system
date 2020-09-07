@@ -5,11 +5,11 @@ import noImageAvail from '../../img/No-image-available.png'
 
 const ClientList = ({ client: { firstName, lastName, _id, prof } }) => {
 
-    let imageSrc = prof ? `/api/profile/photo/${prof.avatar}` : `${noImageAvail}`;
+    // let imageSrc = prof ? `/api/profile/photo/${prof.avatar}` : `${noImageAvail}`;
 
     return (
         <div className="packages bg-light">
-            <img src={`${imageSrc}`} alt="" className="round-img img-size-small"></img>
+            <img src={`${noImageAvail}`} alt="" className="round-img img-size-small"></img>
             <div className="package-info">
                 <h2>{firstName}</h2>
                 <h2>{lastName}</h2>

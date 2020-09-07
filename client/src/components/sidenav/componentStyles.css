@@ -10,6 +10,7 @@
     /* padding: 10px; */
     top:0px;
     /* position: absolute; */
+    outline: 0 !important;
 }
 
 .sidebar {

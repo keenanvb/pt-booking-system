@@ -16,7 +16,7 @@ import { loadUser, logout, setAlert } from './actions'
 import { Provider } from 'react-redux'
 import store from './store'
 
-// import { TransitionGroup, CSSTransition } from 'react-transition-group'
+import { TransitionGroup, CSSTransition } from 'react-transition-group'
 // import Sidenav from './components/sidenav'
 
 if (localStorage.token) {
@@ -68,22 +68,22 @@ const App = () => {
         <Fragment>
           <Navbar />
           {/* <Sidenav /> */}
-          {/* <Route render={({ location }) => (
+          <Route render={({ location }) => (
             <TransitionGroup>
               <CSSTransition
-                timeout={300}
+                timeout={400}
                 classNames='fade'
                 key={location.key}
               >
-                <Switch location={location}> */}
-          <Switch>
-            <Route path='/' exact component={Landing} />
-            <Route component={Routes} />
+                <Switch location={location}>
+                  {/* <Switch> */}
+                  <Route path='/' exact component={Landing} />
+                  <Route component={Routes} />
 
-          </Switch>
-          {/* </CSSTransition>
+                </Switch>
+              </CSSTransition>
             </TransitionGroup>
-          )}/> */}
+          )} />
           {/* <Footer /> */}
         </Fragment>
       </Router>

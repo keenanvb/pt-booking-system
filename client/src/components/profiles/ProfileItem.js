@@ -5,11 +5,11 @@ import noImageAvail from '../../img/No-image-available.png'
 
 const ProfileItem = ({ profile: { user: { _id, firstName, lastName }, avatar, status, company, location } }) => {
 
-    let imageSrc = avatar ? `api/profile/photo/${avatar}` : `${noImageAvail}`;
+    // let imageSrc = avatar ? `api/profile/photo/${avatar}` : `${noImageAvail}`;
 
     return (
         <div className="profile bg-light">
-            <img src={imageSrc} alt="" className="round-img img-size-medium"></img>
+            <img src={noImageAvail} alt="" className="round-img img-size-medium"></img>
             <div>
                 <h2>{firstName}</h2>
                 <h2>{lastName}</h2>

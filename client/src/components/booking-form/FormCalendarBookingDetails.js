@@ -69,8 +69,8 @@ const FormCalendarBookingDetails = ({ booking: { lastestPackage, booking, bookin
                 title: ' Session Booked',
                 start: bookingEvent.startDate,
                 id: bookingEvent._id,
-                backgroundColor: 'red',
-                borderColor: 'red'
+                backgroundColor: '#FF9AA2',
+                borderColor: '#FF9AA2'
             }
         });
 
@@ -93,8 +93,8 @@ const FormCalendarBookingDetails = ({ booking: { lastestPackage, booking, bookin
                     start: e.dateStr,
                     // end:
                     editable: true,
-                    backgroundColor: 'green',
-                    borderColor: 'green'
+                    backgroundColor: '#B5EAD7',
+                    borderColor: '#B5EAD7'
                 }
 
                 if (bookings.length < bookingLimit) {
@@ -170,7 +170,7 @@ const FormCalendarBookingDetails = ({ booking: { lastestPackage, booking, bookin
                             return (
                                 <div className='list-item' key={index}>
                                     <h1 className='list-item-heading'>{moment(booking.start).format('MMMM Do YYYY, h:mm a')}</h1>
-                                    <button className='btn btn-danger' onClick={() => { removeBooking(booking.id) }}>x </button>
+                                    <div className='btn-close' onClick={() => { removeBooking(booking.id) }}>x </div>
                                 </div>
                             )
                         })}</div>

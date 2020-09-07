@@ -15,7 +15,7 @@ const PostItem = ({
     showActions
 }) => {
 
-    let imageSrc = avatar ? `api/profile/photo/${avatar}` : `${noImageAvail}`;
+    // let imageSrc = avatar ? `api/profile/photo/${avatar}` : `${noImageAvail}`;
 
     return (
         <div>
@@ -24,7 +24,7 @@ const PostItem = ({
                     <Link to={`/profile/${user}`}>
                         <img
                             className="round-img img-size-small"
-                            src={imageSrc}
+                            src={noImageAvail}
                             alt=""
                         />
                         <h4>{name}</h4>

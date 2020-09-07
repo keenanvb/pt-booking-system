@@ -2,21 +2,18 @@
     cursor: pointer;
     color: #7ED6DF;
     font-size: 30px;
-    /* font-size: 60px; */
     margin-left: 10px;
-    /* margin-left: 30px; */
     background: transparent;
     border: none;
-    /* padding: 10px; */
     top:0px;
-    /* position: absolute; */
+    outline: 0 !important;
 }
 
 .sidebar {
     top:0px;
     bottom:0px;
     padding-left: 20px;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.9);
     color: white;
     width: 100%;
     position: fixed;
@@ -32,11 +29,11 @@
 }
 
 .close{
-    background-color: black;
     border: none;
     position: absolute;
     right: 25px;
     top: 0px;
+    outline: 0 !important;
 }
 
 .account{

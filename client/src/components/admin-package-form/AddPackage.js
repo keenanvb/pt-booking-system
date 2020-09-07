@@ -138,7 +138,7 @@ const AddPackage = ({ adminPT: { clients }, addPackage, history }) => {
                         return (
                             <div className='package-client'>
                                 <h1 className='package-client-name'>{`${user.name}`}</h1>
-                                <button className='btn btn-danger round' onClick={() => { removeClient(user) }}>x </button>
+                                <div className='btn-close' onClick={() => { removeClient(user) }}>x </div>
                             </div>
                         )
                     })}</div>

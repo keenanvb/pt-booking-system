@@ -42,7 +42,7 @@ const CreateProfile = ({ createProfile, history }) => {
             <form className="form" onSubmit={(e) => onSubmit(e)}>
                 <div className="form-group">
                     <small className="form-text">Tell us a little about yourself</small>
-                    <textarea placeholder="A short bio of yourself" name="bio" value={bio} onChange={(e) => { onChange(e) }}></textarea>
+                    <textarea placeholder="" name="bio" value={bio} onChange={(e) => { onChange(e) }}></textarea>
                 </div>
                 <div className="form-group">
                     <small className="form-text">Status</small>

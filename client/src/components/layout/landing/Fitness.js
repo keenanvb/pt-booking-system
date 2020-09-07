@@ -4,7 +4,7 @@ const Fitness = () => {
 
     let skillSet = [
         {
-            name: "Weight loss",
+            name: "Weight Loss",
             info: "Lorem i elit. Deleniti quis",
             moreInfo: "more info"
         },
@@ -14,31 +14,31 @@ const Fitness = () => {
             moreInfo: "more info"
         },
         {
-            name: "pre-/post-natal training",
+            name: "Pre-/Post-natal Training",
             info: "Lorem i elit. Deleniti quis",
             moreInfo: "more info"
         },
         {
-            name: "endurance training",
+            name: "Endurance Training",
             info: "Lorem i elit. Deleniti quis",
             moreInfo: "more info"
         },
         {
-            name: "functional training",
+            name: "Functional Training",
             info: "Lorem i elit. Deleniti quis",
             moreInfo: "more info"
         },
         {
-            name: " strength and conditioning",
+            name: "Strength & Conditioning",
             info: "Lorem i elit. Deleniti quis",
             moreInfo: "more info"
         },
         {
-            name: " myofascial release & muscle activation",
+            name: "Myofascial Release & Muscle Activation",
             info: "Lorem i elit. Deleniti quis",
             moreInfo: "more info"
         }, {
-            name: "nutritional advice",
+            name: "Nutritional Advice",
             info: "Lorem i elit. Deleniti quis",
             moreInfo: "more info"
         }
@@ -48,7 +48,7 @@ const Fitness = () => {
         return skillSet.map((skillSetItem, index) => {
             return (
                 <div className='skill' key={index}>
-                    <h2>{skillSetItem.name}</h2>
+                    <h2>{skillSetItem.name.toUpperCase()}</h2>
                     {/* <p>{skillSetItem.info}</p> */}
                     <p className="more-info btn">{skillSetItem.moreInfo}</p>
                 </div>
@@ -65,7 +65,7 @@ const Fitness = () => {
             <div className="fitness-skills">
                 {renderSkillTiles()}
             </div>
-            <div className="line"></div>
+            <div className="line hide-sm"></div>
         </div>
     )
 }

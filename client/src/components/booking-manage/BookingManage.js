@@ -107,8 +107,8 @@ const BookingManage = ({ bookingManage: { upAndCommingBookings, bookingSelectedV
                 title: bookingEvent.confirmation ? 'Session Confirmed' : 'Session TBC',
                 start: bookingEvent.startDate,
                 id: bookingEvent._id,
-                backgroundColor: bookingEvent.confirmation ? 'red' : 'orange',
-                borderColor: bookingEvent.confirmation ? 'red' : 'orange',
+                backgroundColor: bookingEvent.confirmation ? '#B5EAD7' : '#FFDAC1',
+                borderColor: bookingEvent.confirmation ? '#B5EAD7' : '#FFDAC1',
                 // editable: bookingEvent.confirmation ? false : true
             }
         });
@@ -156,7 +156,7 @@ const BookingManage = ({ bookingManage: { upAndCommingBookings, bookingSelectedV
 
                             }}
                             firstDay={firstDay}
-                            defaultView="listWeek"
+                            defaultView="timeGridWeek"
                             minTime={'05:00:00'}
                             maxTime={'23:00:00'}
                             scrollTime={time}

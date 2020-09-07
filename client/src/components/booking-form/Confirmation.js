@@ -67,7 +67,7 @@ const Confirmation = ({ booking: { type, userPackage, bookings }, addBooking, ha
             </div>
             {showDialog ?
                 <Dialog title={'Booking Confirmation'} callback={onDialogClick}>
-                    Please confirm booking session/s
+                    Please confirm booking
                 </Dialog> : null
             }
         </Fragment>

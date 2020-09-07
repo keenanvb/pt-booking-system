@@ -5,6 +5,7 @@ import { getCurrentProfile, loadUser } from '../../actions'
 import Spinner from '../layout/Spinner'
 import { Link } from 'react-router-dom'
 import DashboardActions from './DashboardActions'
+import DashboardActions2 from './DashboardActions2'
 // import Goal from './Goal'
 // import Stats from './Stats'
 
@@ -59,13 +60,26 @@ const Dashboard = ({ auth: { user }, profile: { profile, loading }, getCurrentPr
 
                 <h1 className="large text-primary">Dashboard
                 </h1>
-                <p className="lead">
-                    <i className="fas fa-user"></i>Welcome {user && user.name}</p>
+                {/* <p className="lead">
+                    <i className="fas fa-user"></i>Welcome {user && user.firstName}
+                </p> */}
                 {profile !== null ?
-                    <Fragment>
-                        <DashboardActions />
-                        {/* {displaySteps()} */}
-                    </Fragment> :
+                    <>
+                        <Fragment>
+                            <p className="lead" style={{ margin: '20px 0px' }}>
+                                <i className="fas fa-user"></i>Manage
+                            </p>
+                            <DashboardActions />
+                            {/* {displaySteps()} */}
+                        </Fragment>
+                        <Fragment>
+                            <p className="lead" style={{ margin: '20px 0px' }}>
+                                <i className="fas fa-user"></i>View training sessions
+                                       </p>
+                            <DashboardActions2 />
+                            {/* {displaySteps()} */}
+                        </Fragment>
+                    </> :
                     <Fragment>
                         <p>You have not set up a profile</p>
                         <Link to='/create-profile' className='btn btn-primary'>Create profile</Link>

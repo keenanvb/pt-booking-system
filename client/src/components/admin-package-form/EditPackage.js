@@ -155,7 +155,7 @@ const EditPackage = ({ adminPT: { loading, clients }, updatePackage, history, ma
                                 return (
                                     <div className='package-client'>
                                         <h1 className='package-client-name'>{user.name}</h1>
-                                        <button className='btn btn-danger' onClick={() => { removeClient(user.user) }}>x </button>
+                                        <div className='btn-close' onClick={() => { removeClient(user.user) }}>x </div>
                                     </div>
                                 )
                             })}</div>

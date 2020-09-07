@@ -3,13 +3,12 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import Fitness from './landing/Fitness'
+// import Fitness from './landing/Fitness'
 import About from './landing/About'
 import Footer from './Footer'
-import Maps from './Maps'
-import Contact from '../contact/Contact'
-import Spinner from './Spinner'
-const Gym = lazy(() => import('./landing/Gym'));
+// import Maps from './Maps'
+// import Contact from '../contact/Contact'
+// import Spinner from './Spinner'
 
 
 const Landing = ({ isAuthenticated }) => {
@@ -69,18 +68,12 @@ const Landing = ({ isAuthenticated }) => {
     return (
         <div>
             <div id="landing" className="landing">
-                <Suspense fallback={<Spinner />}>
-                    <Gym />
-                </Suspense>
                 <div className="dark-overlay">
                     <div className="landing-inner">
                         <h1 className="x-large">Mobile Personal Trainer</h1>
                         <p className="lead">
                             Live Your Best Life
                         </p>
-                        {/* <div className="buttons">
-                            <Link to="/login" className="btn btn-white">Login</Link>
-                        </div> */}
                         <div className="pulse-container">
                             <div className="pulse">
                                 <a href="#about">
@@ -91,7 +84,7 @@ const Landing = ({ isAuthenticated }) => {
                     </div>
                 </div>
             </div>
-            <div className={`nav-sidebar ${display ? `show-sidebar` : `hide-sidebar-${count}`}`}>
+            <div className={`nav-sidebar ${display ? `show-sidebar fade-in` : `hide-sidebar-${count}`}`}>
                 <a className={`${activeLink === 3 ? 'active-link' : null} `} href="#contact"><i className="far fa-envelope"></i></a>
                 <a className={`${activeLink === 2 ? 'active-link' : null} `} href="#services"><i className="fas fa-dumbbell"></i></a>
                 <a className={`${activeLink === 1 ? 'active-link' : null} `} href="#about"><i className="fa fa-about"></i> About</a>
@@ -100,10 +93,10 @@ const Landing = ({ isAuthenticated }) => {
             <div className="container" id="about">
                 <About />
             </div>
-            <div id="services">
+            {/* <div id="services">
                 <Fitness />
-            </div>
-            <div id="contact" className="contact-section">
+            </div> */}
+            {/* <div id="contact" className="contact-section">
                 <div className="map-conatiner" style={{ width: '100%', marginRight: '12px' }}>
                     <Maps
                         googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${process.env.REACT_APP_GOOGLE_KEY}`}
@@ -116,7 +109,7 @@ const Landing = ({ isAuthenticated }) => {
                     <Contact />
                 </div>
 
-            </div>
+            </div> */}
             <div className="pulse-container-bottom">
                 <div className="pulse">
                     <a href="#landing">

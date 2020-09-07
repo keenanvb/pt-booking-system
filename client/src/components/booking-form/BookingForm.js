@@ -69,6 +69,7 @@ const BookingForm = ({ auth: { user }, profile: { profile, loading }, loadUser, 
         :
         (
             <Fragment>
+                <h1 className="large text-primary">Booking</h1>
                 {profile !== null ?
                     <Fragment>
                         <Stepper stepsArray={steps} direction='horizontal' currentStepNumer={currentStep} />
