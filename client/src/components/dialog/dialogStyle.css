@@ -1,64 +1,66 @@
-.dialog-container{
-    height: 100%;
-    width: 100%;
-    position: fixed;
-    top: 0; 
-    left: 0;
-    text-align: center;
-    background-color:#2c3e50;
-    opacity: 0;
-    z-index: 200;
-    display: flex;
-    flex-direction: column;
-    justify-content:center;
-    color: black;
-    animation: dialog-brighten 0.5s forwards;
-    color: #B2D8ED;
+.dialog-container {
+	height: 100%;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	text-align: center;
+	background-color: #2c3e50;
+	opacity: 0;
+	z-index: 200;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	color: black;
+	animation: dialog-brighten 0.5s forwards;
+	color: #b2d8ed;
 }
 
-.dialog-container-button{
-    margin: 20px;
+.dialog-container-button {
+	margin: 20px;
 }
 
-.dialog-button{
-    width: 60px;
-    height: 60px;
-    margin: 30px;
-    border-radius: 50%;
-    font-size: 18px;
+.dialog-button {
+	width: 60px;
+	height: 60px;
+	margin: 30px;
+	border-radius: 50%;
+	font-size: 18px;
+	border: none;
 }
 
-.no{
-    background-color: red;
+.no {
+	background-color: red;
 }
 
-.yes{
-    background-color: green;
+.yes {
+	background-color: green;
 }
 
-.dialog-button.no:hover{
-    background-color: white;
-    color: black;
+.dialog-button.no:hover {
+	background-color: white;
+	color: black;
 }
 
-.dialog-button.yes:hover{
-    background-color: white;
-    color: black;
+.dialog-button.yes:hover {
+	background-color: white;
+	color: black;
 }
 
-
-.dialog-button-close{
-    background-color: white;
-    border: none;
-    width: 50px;
-    height: 50px;
-    top: 50px;
-    right: 50px;
-    position: absolute;
-    border-radius: 50%;
-    font-size: 24px;
+.dialog-button-close {
+	background-color: white;
+	border: none;
+	width: 50px;
+	height: 50px;
+	top: 50px;
+	right: 50px;
+	position: absolute;
+	border-radius: 50%;
+	font-size: 24px;
 }
 
-@keyframes dialog-brighten{
-    100%{ opacity: 0.9}
+@keyframes dialog-brighten {
+	100% {
+		opacity: 0.9;
+	}
 }
