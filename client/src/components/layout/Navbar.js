@@ -24,11 +24,16 @@ const Navbar = ({ auth: { loading, isAuthenticated, user }, logout }) => {
 					<i className="fas fa-chart-bar"></i> <span className="hide-sm">Dashboard</span>
 				</NavLink>
 			</li>
-			<li>
-				<NavLink activeClassName="is-active" exact to="/booking">
-					<i className="fas fa-calendar-check"></i> <span className="hide-sm">Booking</span>
-				</NavLink>
-			</li>
+			{user && user.role !== 'admin' ? (
+				<>
+					<li>
+						<NavLink activeClassName="is-active" exact to="/booking">
+							<i className="fas fa-calendar-check"></i> <span className="hide-sm">Booking</span>
+						</NavLink>
+					</li>
+				</>
+			) : null}
+
 			{/* <li><NavLink to="/profiles"><i className="fas fa-user-friends"></i>{' '}<span className="hide-sm">Members</span></NavLink></li> */}
 			{/* <li><NavLink to="/posts"><i className="fas fa-comment"></i>{' '}<span className="hide-sm">Community Posts</span></NavLink></li> */}
 			<li>
